@@ -135,7 +135,7 @@ int main() {
 
         //  Code Welcome Screen
         welcomeText(userName);
-        printf("\nPress Any Key to playing game . . .");
+        printf("\nPress Enter Key to playing game . . .");
         getchar();
         system("cls");
 
