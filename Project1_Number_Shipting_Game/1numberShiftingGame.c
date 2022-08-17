@@ -309,26 +309,59 @@ int random_array(int array[][4], int temp[]) {
 
 
 void display(int array[][4], int* cordinate_1, int* cordinate_2) {
-    printf("----------------------\n");
+    orange();
+    printf("---------------------\n");
+    reset();
     for (int i = 0; i < 4; i++) {
+        if (i == 0) {
+            orange();
+        }
+        else if (i == 3) {
+            green();
+        }
+        else {
+            white();
+        }
         for (int j = 0; j < 4; j++) {
             if (i == *cordinate_1 && j == *cordinate_2) {
                 array[i][j] = 32;
-                printf("| %c ", array[i][j]);
-            }
-            else {
-                if (array[i][j] <= 9) {
-                    printf("| %d ", array[i][j]);
+                if (j == 3) {
+                    printf("|  %c |", array[i][j]);
                 }
                 else {
-                    printf("| %d", array[i][j]);
+                    printf("| %c  ", array[i][j]);
+                }
+            }
+            else {
+                //  code for which numbers are less than 9
+                if (array[i][j] <= 9) {
+                    //  for last column
+                    if (j == 3) {
+                        printf("|  %d |", array[i][j]);
+                    }
+                    else {
+                        printf("|  %d ", array[i][j]);
+                    }
+                }
+                //  code for which numbers are greter than 9
+                else {
+                    //  for last column
+                    if (j == 3) {
+                        printf("| %d |", array[i][j]);
+                    }
+                    else {
+                        printf("| %d ", array[i][j]);
+
+                    }
                 }
             }
         }
 
         printf("\n");
     }
-    printf("----------------------");
+    green();
+    printf("---------------------");
+    reset();
 }
 
 //  function for generate a Random Array
